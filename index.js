@@ -37,9 +37,6 @@ function displayBooks(){
 
 }
 
-
-
-
 const buttonOne = document.getElementById("button");
  
 
@@ -49,7 +46,7 @@ if(buttonOne){
 buttonOne.addEventListener('click', displayBooks)
 };
 
-const container = document.getElementById("container");
+const containerOne = document.getElementById("container-one");
 myLibrary.forEach((book)=>{
     const card = document.createElement("div");
     card.className="card";
@@ -58,8 +55,8 @@ myLibrary.forEach((book)=>{
         <h3 class="title">${book.title}</h3>
         <p class="description">${book.description}</p>
         `;
-    console.log(container);
-    container.appendChild(card);
+    console.log(containerOne);
+    containerOne.appendChild(card);
 });
 
 
