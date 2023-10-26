@@ -12,7 +12,25 @@
 
     </div>
     <div id="container-two">
-        <div id="new-book-button"><a href="form.html">  NEW BOOK </a></div>
+        <div id="new-book-button">  NEW BOOK </div>
     </div>
+        <dialog id = "dialog">
+            <div id="back-button">Back</div>
+        <form id="form">
+            <label for="title">Book Title</label>
+            <input type="text" id="title" required>
+            <label for="description">Description</label>
+            <input type="text" id="description" required>
+            <label for="author"> Author</label>
+            <input type="text" id="author" required>
+            <label for="pages"> Number of pages</label>
+            <input type="number" id="pages" required>
+            <label for="status">Pages read</label>
+            <input type="number" id="status" required>
+            <label for="suggestions">Book suggestions</label>
+            <input type="text" id="suggestions" required>
+            <input type="submit" id="submit" required>
+        </form>
+    </dialog>
 </body>
 </html>
