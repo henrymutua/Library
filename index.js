@@ -49,8 +49,30 @@ function displayBooks(){
         
 
 });
+
+addDeleteButtonEventListeners();
+
 }
-    displayBooks();
+
+function addDeleteButtonEventListeners() {
+    const deleteButtons = document.querySelectorAll(".delete-button");
+
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            const index = e.target.getAttribute("data-index");
+            if (index !== null) {
+                const indexToDelete = parseInt(index, 10);
+                myLibrary.splice(indexToDelete, 1);
+                displayBooks(); // Update the displayed books
+                updateDataIndices(); // Update data-index attributes
+            }
+        });
+    });
+}
+
+// Call addDeleteButtonEventListeners initially to set up the event listeners
+    addDeleteButtonEventListeners();
+    
     
     console.log(myLibrary);
     const form = document.getElementById("form");
@@ -88,6 +110,7 @@ function displayBooks(){
     const newBookButton = document.getElementById("new-book-button");
     const backButton = document.getElementById("back-button");
     const dialog = document.getElementById("dialog");
+    const deleteButtons = document.querySelectorAll(".delete-button");
 
     newBookButton.addEventListener('click', (e)=>{
         console.log(e);
@@ -102,20 +125,19 @@ function displayBooks(){
         dialog.close();
     });
 
-    const deleteButton = document.querySelectorAll(".delete-button");
-    
-    
 
-    deleteButton.forEach((button) => {
-        button. addEventListener('click', (e)=>{
-            const index = e.target.getAttribute("data-index");
-            if(index !==null){
-                myLibrary.splice(index, 1);
-                displayBooks();
-            }})
+    function updateDataIndices() {
+        const deleteButtons = document.querySelectorAll(".delete-button");
+        deleteButtons.forEach((button, index) => {
+          button.setAttribute("data-index", index);
+        });
+      }
     
-       
-    })
+      
+      displayBooks();
+     
+    
+    
     
 });
 
