@@ -40,7 +40,12 @@ function displayBooks(){
     card.className="card";
 
     card.innerHTML = `
-    <h3 class="title">${book.title}</h3>
+    <h3 class="title">${book.title} </h3>
+    <div class="reading-status">Unfinished
+    <div class = "toggle-icon">
+    <div class ="toggle-circle"> </div> 
+    </div> 
+    </div>
     <p class="description">${book.description}</p>
     <div class="delete-button" data-index = "${index}">Delete</div>
     `;
