@@ -41,7 +41,7 @@ function displayBooks(){
 
     card.innerHTML = `
     <h3 class="title">${book.title} </h3>
-    <div class="reading-status">Unfinished
+    <div class="reading-status"><div class="status-text">Unfinished</div>
     <div class = "toggle-icon">
     <div class ="toggle-circle"> </div> 
     </div> 
@@ -56,8 +56,26 @@ function displayBooks(){
 });
 
 addDeleteButtonEventListeners();
+addToggleEventListeners();
 
 }
+
+function addToggleEventListeners() {
+    const toggleCircles = document.querySelectorAll(".toggle-circle");
+
+    toggleCircles.forEach((toggleCircle) => {
+      toggleCircle.addEventListener('click', () => {
+        toggleCircle.classList.toggle("toggle-change");
+
+        const readingStatus = toggleCircle.parentElement.parentElement;
+
+        const statusText = readingStatus.querySelector(".status-text");
+
+        statusText.textContent = statusText.textContent === "Unfinished" ? "Finished": "Unfinished";
+
+      });
+    });
+  }
 
 function addDeleteButtonEventListeners() {
     const deleteButtons = document.querySelectorAll(".delete-button");
@@ -140,6 +158,8 @@ function addDeleteButtonEventListeners() {
     
       
       displayBooks();
+
+      
      
     
     
